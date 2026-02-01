@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Selection</title>
+    <link rel="stylesheet" href="css/food.css" />
+  </head>
+  <body>
+    <div id="foodquestion">
+      <b>Which cuisine would you prefer?</b>
+    </div>
+
+    <div class="food-selection">
+
+      <div class="food-item">
+        <img src="food/sushi.jpeg" alt="Asian Cuisine" />
+        <label>
+          <input type="checkbox" name="food" value="Asian" /> Asian
+        </label>
+      </div>
+
+      <div class="food-item">
+        <img src="food/pizza.jpeg" alt="Italian Cuisine" />
+        <label>
+          <input type="checkbox" name="food" value="Italian" /> Italian
+        </label>
+      </div>
+
+      <div class="food-item">
+        <img src="food/burgers.jpeg" alt="Multi-Cuisine" />
+        <label>
+          <input type="checkbox" name="food" value="Multi-Cuisine" /> Multi-Cuisine
+        </label>
+      </div>
+
+      <div class="food-item">
+        <img src="food/salad.jpeg" alt="Dealer's Choice" />
+        <label>
+          <input type="checkbox" name="food" value="Dealers Choice" /> Dealer’s Choice
+        </label>
+      </div>
+
+    </div>
+
+    <button class="button" onclick="saveFood()">Continue UWU</button>
+
+    <script>
+      function saveFood() {
+        const selectedFood = [];
+
+        document
+          .querySelectorAll('input[name="food"]:checked')
+          .forEach(item => selectedFood.push(item.value));
+
+        if (selectedFood.length === 0) {
+          alert("Pick at least one cuisine 😤");
+          return;
+        }
+
+        localStorage.setItem("food", JSON.stringify(selectedFood));
+        window.location.href = "dessert.html";
+      }
+    </script>
+  </body>
+</html>

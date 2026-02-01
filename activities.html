@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities</title>
+    <link rel="stylesheet" href="css/activities.css" />
+  </head>
+  <body>
+    <div id="activityquestion"><b>What are we doing after?</b></div>
+
+    <div class="activities-selection">
+
+      <div class="activity-item">
+        <img src="activities/arcade.jpeg" alt="Arcade" />
+        <label>
+          <input type="radio" name="activity" value="Arcade" /> Arcade
+        </label>
+      </div>
+
+      <div class="activity-item">
+        <img src="activities/cinema.jpeg" alt="Movies" />
+        <label>
+          <input type="radio" name="activity" value="Movies" /> Movies
+        </label>
+      </div>
+
+      <div class="activity-item">
+        <img src="activities/kunsthalle.jpeg" alt="Art Gallery" />
+        <label>
+          <input type="radio" name="activity" value="Art Gallery" /> Art Gallery
+        </label>
+      </div>
+
+      <div class="activity-item">
+        <img src="activities/Museum.jpeg" alt="Museum" />
+        <label>
+          <input type="radio" name="activity" value="Museum" /> Museum
+        </label>
+      </div>
+
+    </div>
+
+    <button class="button" onclick="saveActivities()">Last page</button>
+
+    <script>
+      function saveActivities() {
+        const selectedActivity = document.querySelector(
+          'input[name="activity"]:checked'
+        );
+
+        if (!selectedActivity) {
+          alert("Pick one activity 😤");
+          return;
+        }
+
+        localStorage.setItem("activities", selectedActivity.value);
+        window.location.href = "lastpage.html";
+      }
+    </script>
+  </body>
+</html>
